@@ -153,9 +153,6 @@ public class AuthenticationClient extends AbstractClient {
                 throw new AuthenticationClientException("password is empty");
             }
 
-            // Pause for 2 seconds to annoy brute force attempts.
-            Thread.sleep(2000);
-
             // Call the User Management API.
             final Response response = this.getWebClientInstance().path(this.loginPath).post(loginRequest);
 
@@ -165,6 +162,14 @@ public class AuthenticationClient extends AbstractClient {
             // Map the body to the LoginResponse.
             loginResponse = this.jacksonObjectMapper.readValue(body, LoginResponse.class);
         } catch (final Exception e) {
+            // Pause for 2 seconds to annoy brute force attempts, when a login
+            // fails.
+            try {
+                Thread.sleep(2000);
+            } catch (final InterruptedException e1) {
+                LOGGER.error("Sleep to annoy brute force attempts failed", e1);
+            }
+
             LOGGER.error(LOGIN_FAILED, e);
             throw new AuthenticationClientException(LOGIN_FAILED, e);
         }
