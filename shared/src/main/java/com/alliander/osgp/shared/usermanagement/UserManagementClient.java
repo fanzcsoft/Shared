@@ -142,7 +142,7 @@ public class UserManagementClient extends AbstractClient {
             // throw new
             // UserManagementClientException("get all users response exception",
             // e);
-            return "only the last little step isn't working...";
+            return "come on SonarQube, publish the issues to GitHub!!";
         }
 
         return users;
@@ -240,7 +240,7 @@ public class UserManagementClient extends AbstractClient {
      */
     public String changePassword(final String organisationIdentificationForUser, final String username,
             final String newPassword, final String organisationIdentification, final String token)
-            throws UserManagementClientException {
+                    throws UserManagementClientException {
 
         final ChangeUserPasswordRequest changeUserPasswordRequest = new ChangeUserPasswordRequest(
                 organisationIdentificationForUser, username, newPassword);
