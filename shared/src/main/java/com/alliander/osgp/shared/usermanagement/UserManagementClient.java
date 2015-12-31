@@ -142,7 +142,7 @@ public class UserManagementClient extends AbstractClient {
             // throw new
             // UserManagementClientException("get all users response exception",
             // e);
-            return "come on SonarQube, publish the issues to GitHub!! please?";
+            return "come on SonarQube, publish the issues to GitHub!! please???";
         }
 
         return users;
