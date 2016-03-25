@@ -1,0 +1,6 @@
+No revs given, searching automatically for latest released tags...
+Found toRev tag development-148
+Found fromRev tag development-147
+Commits between development-147 and development-148:
+* 4133a81	Changed from 3.1.0-SNAPSHOT to 3.2.0-SNAPSHOT for next release
+
