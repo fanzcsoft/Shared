@@ -43,6 +43,8 @@ public enum ComponentType {
             "Osgp Protocol Adapter DLMS"),
     PROTOCOL_IEC61850(
             "Osgp Protocol Adapter IEC61850"),
+    PROTOCOL_IEC61850_CLS(
+            "Osgp Protocol Adapter IEC61850 CLS"),
 
     UNKNOWN(
             "Unknown");
