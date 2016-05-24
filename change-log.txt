@@ -1,0 +1,11 @@
+No revs given, searching automatically for latest released tags...
+Found toRev tag development-183
+Found fromRev tag development-182
+Commits between development-182 and development-183:
+* 0331781	FLEX-1616 Implement Event Notification for Kaifa (#97)
+
+* Adds date/time to event notification, adds event types from Kaifa
+device.
+
+* Adds javadoc tag deprecated missed by Jenkins.
+
