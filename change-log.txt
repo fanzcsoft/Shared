@@ -1,0 +1,6 @@
+No revs given, searching automatically for latest released tags...
+Found toRev tag development-194
+Found fromRev tag development-193
+Commits between development-193 and development-194:
+* 5519c87	Adapted version to 3.7.0-SNAPSHOT
+
