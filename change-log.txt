@@ -1,7 +1,6 @@
 No revs given, searching automatically for latest released tags...
-Found toRev tag release-3.2.0-618
-Found fromRev tag development-160
-Commits between development-160 and release-3.2.0-618:
-* 98e80d7	Changed to release 3.2.0
-* ce51254	Setting dev to 3.2.0-SNAPSHOT
+Found toRev tag development-194
+Found fromRev tag development-193
+Commits between development-193 and development-194:
+* 5519c87	Adapted version to 3.7.0-SNAPSHOT
 
