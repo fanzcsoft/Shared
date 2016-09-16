@@ -12,7 +12,7 @@
 
     <groupId>com.alliander.osgp</groupId>
     <artifactId>shared-components</artifactId>
-    <version>3.9.0</version>
+    <version>3.10.0</version>
     <packaging>pom</packaging>
     <name>shared</name>
 
@@ -20,7 +20,7 @@
     <description>Shared Components for OSGP and Protocol Adapters.</description>
     <organization>
         <name>OSGP</name>
-        <url>https://osgplatform.wordpress.com</url>
+        <url>http://opensmartgridplatform.org</url>
     </organization>
     <licenses>
         <license>
