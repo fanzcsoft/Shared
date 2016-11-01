@@ -1,8 +1,8 @@
 No revs given, searching automatically for latest released tags...
-Found toRev tag development-212
-Found fromRev tag development-211
-Commits between development-211 and development-212:
-* 7c78f35	Merge pull request #123 from OSGP/SLIM-612-introduce-result-status-to-operations
+Found toRev tag development-222
+Found fromRev tag development-221
+Commits between development-221 and development-222:
+* 473c850	Merge pull request #130 from OSGP/OC-174-Update-Jenkins-link
 
-SLIM-612 introduce result status to operations to make errors clear* ec57e11	Adds license header to ActionResponseDto.* 4620fbd	Merges branch 'development' into SLIM-612-introduce-result-status-to-operations.
-* d4ed2d1	Adds OsgpResultTypeDto and result in ActionResponseDto.
+Updated Jenkins link in Readme* 342fe55	Updated Jenkins link in Readme
+
