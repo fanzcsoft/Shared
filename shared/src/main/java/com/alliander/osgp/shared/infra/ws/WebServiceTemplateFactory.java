@@ -54,44 +54,21 @@ public class WebServiceTemplateFactory {
 
     public WebServiceTemplateFactory(final Jaxb2Marshaller marshaller, final SaajSoapMessageFactory messageFactory,
             final String applicationName) {
-        this.marshaller = marshaller;
-        this.messageFactory = messageFactory;
-        this.applicationName = applicationName;
-        this.webServiceTemplates = new HashMap<>();
-        this.trustStoreFactory = null;
-        this.defaultUri = null;
-        this.keyStorePassword = null;
-        this.keyStoreType = null;
-        this.keyStoreLocation = null;
+        this(marshaller, messageFactory, null, null, null, null, null, applicationName);
     }
 
     public WebServiceTemplateFactory(final Jaxb2Marshaller marshaller, final SaajSoapMessageFactory messageFactory,
             final String keyStoreType, final String keyStoreLocation, final String keyStorePassword,
             final KeyStoreFactoryBean trustStoreFactory, final String applicationName) {
-        this.marshaller = marshaller;
-        this.messageFactory = messageFactory;
-        this.keyStoreType = keyStoreType;
-        this.keyStoreLocation = keyStoreLocation;
-        this.keyStorePassword = keyStorePassword;
-        this.trustStoreFactory = trustStoreFactory;
-        this.applicationName = applicationName;
-        this.webServiceTemplates = new HashMap<>();
-        this.defaultUri = null;
+        this(marshaller, messageFactory, null, keyStoreType, keyStoreLocation, keyStorePassword, trustStoreFactory,
+                applicationName);
     }
 
     public WebServiceTemplateFactory(final Jaxb2Marshaller marshaller, final SaajSoapMessageFactory messageFactory,
             final String defaultUri, final String keyStoreType, final String keyStoreLocation,
             final String keyStorePassword, final KeyStoreFactoryBean trustStoreFactory) {
-        this.marshaller = marshaller;
-        this.messageFactory = messageFactory;
-        this.defaultUri = defaultUri;
-        this.keyStoreType = keyStoreType;
-        this.keyStoreLocation = keyStoreLocation;
-        this.keyStorePassword = keyStorePassword;
-        this.trustStoreFactory = trustStoreFactory;
-        this.applicationName = null;
-
-        this.webServiceTemplates = new HashMap<>();
+        this(marshaller, messageFactory, defaultUri, keyStoreType, keyStoreLocation, keyStorePassword,
+                trustStoreFactory, null);
     }
 
     public WebServiceTemplateFactory(final Jaxb2Marshaller marshaller, final SaajSoapMessageFactory messageFactory,
@@ -105,39 +82,12 @@ public class WebServiceTemplateFactory {
         this.keyStorePassword = keyStorePassword;
         this.trustStoreFactory = trustStoreFactory;
         this.applicationName = applicationName;
-
         this.webServiceTemplates = new HashMap<>();
     }
 
-    public WebServiceTemplate getTemplate(final String organisationIdentification, final String userName) {
-
-        if (StringUtils.isEmpty(organisationIdentification)) {
-            LOGGER.error("organisationIdentification is empty or null");
-        }
-        if (StringUtils.isEmpty(userName)) {
-            LOGGER.error("userName is empty or null");
-        }
-        if (StringUtils.isEmpty(this.applicationName)) {
-            LOGGER.error("applicationName is empty or null");
-        }
-
-        WebServiceTemplate webServiceTemplate = null;
-        try {
-            this.lock.lock();
-
-            // Create new webservice template, if not yet available for
-            // organisation
-            final String key = organisationIdentification.concat("-").concat(userName).concat(this.applicationName);
-            if (!this.webServiceTemplates.containsKey(key)) {
-                this.webServiceTemplates.put(key, this.createTemplate(organisationIdentification, userName));
-            }
-
-            webServiceTemplate = this.webServiceTemplates.get(key);
-        } finally {
-            this.lock.unlock();
-        }
-
-        return webServiceTemplate;
+    public WebServiceTemplate getTemplate(final String organisationIdentification, final String userName)
+            throws TechnicalException {
+        return this.getTemplate(organisationIdentification, userName, this.applicationName);
     }
 
     public WebServiceTemplate getTemplate(final String organisationIdentification, final String userName,
@@ -168,31 +118,6 @@ public class WebServiceTemplateFactory {
             webServiceTemplate = this.webServiceTemplates.get(key);
         } finally {
             this.lock.unlock();
-        }
-
-        return webServiceTemplate;
-    }
-
-    private WebServiceTemplate createTemplate(final String organisationIdentification, final String userName) {
-        final WebServiceTemplate webServiceTemplate = new WebServiceTemplate(this.messageFactory);
-
-        webServiceTemplate.setDefaultUri(this.defaultUri);
-        webServiceTemplate.setMarshaller(this.marshaller);
-        webServiceTemplate.setUnmarshaller(this.marshaller);
-        webServiceTemplate.setInterceptors(
-                new ClientInterceptor[] { new OrganisationIdentificationClientInterceptor(organisationIdentification,
-                        userName, this.applicationName, NAMESPACE, ORGANISATION_IDENTIFICATION_HEADER, USER_NAME_HEADER,
-                        APPLICATION_NAME_HEADER) });
-        if (this.defaultUri.contains("proxy-server")) {
-            webServiceTemplate.setCheckConnectionForFault(false);
-        } else {
-            webServiceTemplate.setCheckConnectionForFault(true);
-        }
-
-        try {
-            webServiceTemplate.setMessageSender(this.webServiceMessageSender(organisationIdentification));
-        } catch (GeneralSecurityException | IOException e) {
-            LOGGER.error("key error", e);
         }
 
         return webServiceTemplate;

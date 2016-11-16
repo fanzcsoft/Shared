@@ -43,13 +43,13 @@ public class OrganisationIdentificationClientInterceptor implements ClientInterc
         final SoapHeaderElement element = soapHeader.addHeaderElement(headerName);
         element.setText(this.organisationIdentification);
 
-        final QName applicationNameHeaderName = QNameUtils.createQName(this.namespace, this.applicationNameHeaderName,
-                "");
-        final SoapHeaderElement applicationElement = soapHeader.addHeaderElement(applicationNameHeaderName);
+        final QName qualifiedApplicationHeaderName = QNameUtils.createQName(this.namespace,
+                this.applicationNameHeaderName, "");
+        final SoapHeaderElement applicationElement = soapHeader.addHeaderElement(qualifiedApplicationHeaderName);
         applicationElement.setText(this.applicationName);
 
-        final QName userNameHeaderName = QNameUtils.createQName(this.namespace, this.userNameHeaderName, "");
-        final SoapHeaderElement userElement = soapHeader.addHeaderElement(userNameHeaderName);
+        final QName qualifiedUserHeaderName = QNameUtils.createQName(this.namespace, this.userNameHeaderName, "");
+        final SoapHeaderElement userElement = soapHeader.addHeaderElement(qualifiedUserHeaderName);
         userElement.setText(this.userName);
 
         return true;
