@@ -26,8 +26,7 @@ import org.springframework.ws.soap.saaj.SaajSoapMessageFactory;
 import org.springframework.ws.soap.security.support.KeyStoreFactoryBean;
 import org.springframework.ws.transport.http.HttpComponentsMessageSender;
 
-import com.alliander.osgp.shared.exceptionhandling.ComponentType;
-import com.alliander.osgp.shared.exceptionhandling.TechnicalException;
+import com.alliander.osgp.shared.exceptionhandling.WebServiceSecurityException;
 
 @SuppressWarnings("deprecation")
 public class WebServiceTemplateFactory {
@@ -86,12 +85,12 @@ public class WebServiceTemplateFactory {
     }
 
     public WebServiceTemplate getTemplate(final String organisationIdentification, final String userName)
-            throws TechnicalException {
+            throws WebServiceSecurityException {
         return this.getTemplate(organisationIdentification, userName, this.applicationName);
     }
 
     public WebServiceTemplate getTemplate(final String organisationIdentification, final String userName,
-            final String applicationName) throws TechnicalException {
+            final String applicationName) throws WebServiceSecurityException {
 
         if (StringUtils.isEmpty(organisationIdentification)) {
             LOGGER.error("organisationIdentification is empty or null");
@@ -124,7 +123,7 @@ public class WebServiceTemplateFactory {
     }
 
     private WebServiceTemplate createTemplate(final String organisationIdentification, final String userName,
-            final String applicationName) throws TechnicalException {
+            final String applicationName) throws WebServiceSecurityException {
         final WebServiceTemplate webServiceTemplate = new WebServiceTemplate(this.messageFactory);
 
         webServiceTemplate.setDefaultUri(this.defaultUri);
@@ -142,8 +141,8 @@ public class WebServiceTemplateFactory {
         try {
             webServiceTemplate.setMessageSender(this.webServiceMessageSender(organisationIdentification));
         } catch (GeneralSecurityException | IOException e) {
-            LOGGER.error("Technical exception occured: Certificate not available", e);
-            throw new TechnicalException(ComponentType.UNKNOWN, "Certificate not available", e);
+            LOGGER.error("Webservice exception occurred: Certificate not available", e);
+            throw new WebServiceSecurityException("Certificate not available", e);
         }
 
         return webServiceTemplate;
