@@ -12,10 +12,13 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import javax.net.ssl.SSLContext;
+
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.client.HttpClient;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLContexts;
+import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.FileSystemResource;
@@ -28,7 +31,6 @@ import org.springframework.ws.transport.http.HttpComponentsMessageSender;
 
 import com.alliander.osgp.shared.exceptionhandling.WebServiceSecurityException;
 
-@SuppressWarnings("deprecation")
 public class WebServiceTemplateFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WebServiceTemplateFactory.class);
@@ -163,15 +165,21 @@ public class WebServiceTemplateFactory {
             throw new KeyStoreException("Key store is empty");
         }
 
-        // Create HTTP sender and associate keystore to it
-        final HttpComponentsMessageSender sender = new HttpComponentsMessageSender();
-        final HttpClient client = sender.getHttpClient();
-        final SSLSocketFactory socketFactory = new SSLSocketFactory(keyStore, this.keyStorePassword,
-                this.trustStoreFactory.getObject());
+        // Setup SSL context, load trust and keystore and build the message sender
+        SSLContext sslContext = SSLContexts.custom()
+                .loadKeyMaterial(keyStore , this.keyStorePassword.toCharArray())
+                .loadTrustMaterial(this.trustStoreFactory.getObject(), new TrustSelfSignedStrategy())
+                .build();
+        
+        HttpClientBuilder clientbuilder = HttpClientBuilder.create();
+        SSLConnectionSocketFactory connectionFactory = new SSLConnectionSocketFactory(sslContext, 
+                SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+        clientbuilder.setSSLSocketFactory(connectionFactory);
+        
+        // Add intercepter to prevent issue with duplicate headers.
+        // See also: http://forum.spring.io/forum/spring-projects/web-services/118857-spring-ws-2-1-4-0-httpclient-proxy-content-length-header-already-present
+        clientbuilder.addInterceptorLast(new HttpComponentsMessageSender.RemoveSoapHeadersInterceptor());
 
-        final Scheme scheme = new Scheme("https", 443, socketFactory);
-        client.getConnectionManager().getSchemeRegistry().register(scheme);
-
-        return sender;
+        return new HttpComponentsMessageSender(clientbuilder.build());
     }
 }
