@@ -1,0 +1,6 @@
+No revs given, searching automatically for latest released tags...
+Found toRev tag development-249
+Found fromRev tag development-248
+Commits between development-248 and development-249:
+* ecd5438	Adapted version to 4.5.0-SNAPSHOT
+
