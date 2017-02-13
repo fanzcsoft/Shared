@@ -12,7 +12,7 @@
 
     <groupId>com.alliander.osgp</groupId>
     <artifactId>shared-components</artifactId>
-    <version>4.3.1</version>
+    <version>4.6.0</version>
     <packaging>pom</packaging>
     <name>shared</name>
 
@@ -85,5 +85,11 @@
         <module>parent-shared</module>
         <module>shared</module>
         <module>osgp-dto</module>
+        <module>osgp-ws-smartmetering</module>
+        <module>osgp-ws-core</module>
+        <module>osgp-ws-admin</module>
+        <module>osgp-ws-tariffswitching</module>
+        <module>osgp-ws-publiclighting</module>
+        <module>osgp-ws-microgrids</module>
     </modules>
 </project>

@@ -1,34 +1,5 @@
 No revs given, searching automatically for latest released tags...
-Found toRev tag development-234
-Found fromRev tag master-65
-Commits between master-65 and development-234:
-* 40e196c	Adapted version to 4.4.0-SNAPSHOT
-* 477d438	Merges branch 'SLIM-268-Update_Firmware' into development.
-* c237615	Merges branch 'development' into SLIM-268-Update_Firmware.
-* eaf9408	Updated poms
-* 00ff0d2	Merge branch 'development' into SLIM-268-Update_Firmware
-* de817a5	Addresses review comments. SLIM-268
-* dda7218	Merge pull request #138 from OSGP/feat-logout
-
-FLEX-2346 ~ Moves back generic exceptions* 7a60ecb	FLEX-2346 ~ Moves back generic exceptions
-* fa9a44c	Merge pull request #134 from OSGP/feat-logout
-
-FLEX-1972 ~ Moves authentication code from Shared to webservice-client* e093675	Merge pull request #137 from OSGP/SLIM-689-check-devicefunction-in-bundle
-
-Set special days was not renamed at all places - SLIM-689* a2ebe95	Set special days was not renamed at all places - SLIM-689* e143fbd	Merge branch 'development' into SLIM-268-Update_Firmware
-* 38c99e6	Added a link to the public Jira board (#133)
-
-* Added a link to the public Jira board
-
-* Improved spelling and added a link
-* e3b9515	Merge branch 'development' of https://github.com/OSGP/Shared into feat-logout
-* af78915	Merge branch 'development' into SLIM-268-Update_Firmware
-* 1f82eae	Adds DTO for update firmware response. SLIM-268
-* 8a90a0e	Merge branch 'development' of https://github.com/OSGP/Shared into development
-* fbc91db	Adapted version to 4.3.0-SNAPSHOT
-* 8ba16c6	Adapted version to 4.3.0-SNAPSHOT
-* 8702b5d	Merge branch 'development' into SLIM-268-Update_Firmware
-* 8ff08c1	FLEX-1972 ~ Moves authentication code from Shared to webservice-client
-* fb1c3fe	Fixes property name for mapping. SLIM-268
-* ef9fc1e	Adds UpdateFirmwareRequestDto. SLIM-268
+Found toRev tag development-256
+Found fromRev tag development-258
+Commits between development-258 and development-256:
 
