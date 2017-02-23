@@ -20,4 +20,8 @@ public class ConnectionFailureException extends OsgpException {
     public ConnectionFailureException(final ComponentType componentType, final String message) {
         super(componentType, message);
     }
+
+    public ConnectionFailureException(final ComponentType componentType, final String message, final Throwable cause) {
+        super(componentType, message, cause);
+    }
 }
