@@ -1,8 +1,6 @@
 No revs given, searching automatically for latest released tags...
-Found toRev tag release-4.7.0-676
-Found fromRev tag release-4.7.0-675
-Commits between release-4.7.0-675 and release-4.7.0-676:
-* b24cc04	Revert "Merge pull request #165 from OSGP/SLIM-762-il-push-alarm-not"
-
-This reverts commit 11fa5730f175a6cf962adf1373f38dc618593ef4.
+Found toRev tag development-291
+Found fromRev tag development-290
+Commits between development-290 and development-291:
+* 31e4190	Adapted version to 4.10.0-SNAPSHOT
 
