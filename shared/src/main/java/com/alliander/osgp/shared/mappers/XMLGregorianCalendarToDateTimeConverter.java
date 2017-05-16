@@ -11,6 +11,7 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import ma.glasnost.orika.MappingContext;
 import ma.glasnost.orika.converter.BidirectionalConverter;
 import ma.glasnost.orika.metadata.Type;
 
@@ -23,7 +24,8 @@ public class XMLGregorianCalendarToDateTimeConverter extends BidirectionalConver
     private static final Logger LOGGER = LoggerFactory.getLogger(XMLGregorianCalendarToDateTimeConverter.class);
 
     @Override
-    public XMLGregorianCalendar convertFrom(final DateTime source, final Type<XMLGregorianCalendar> destinationType) {
+    public XMLGregorianCalendar convertFrom(final DateTime source, final Type<XMLGregorianCalendar> destinationType,
+            final MappingContext context) {
         if (source == null) {
             return null;
         }
@@ -39,11 +41,25 @@ public class XMLGregorianCalendarToDateTimeConverter extends BidirectionalConver
     }
 
     @Override
-    public DateTime convertTo(final XMLGregorianCalendar source, final Type<DateTime> destinationType) {
+    public DateTime convertTo(final XMLGregorianCalendar source, final Type<DateTime> destinationType,
+            final MappingContext context) {
         if (source == null) {
             return null;
         }
 
         return new DateTime(source.toGregorianCalendar().getTime());
     }
+
+    @Override
+    public boolean canConvert(final Type<?> sourceType, final Type<?> destinationType) {
+        // The check 'this.sourceType.isAssignableFrom(sourceType)' fails for
+        // org.yoda.DateTime.class.
+        // Use custom check instead.
+        if (sourceType.getRawType().getName() == DateTime.class.getName()
+                && destinationType.getRawType().getName() == XMLGregorianCalendar.class.getName()) {
+            return true;
+        }
+        return this.sourceType.isAssignableFrom(sourceType) && this.destinationType.equals(destinationType);
+    }
+
 }
