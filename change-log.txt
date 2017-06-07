@@ -1,0 +1,6 @@
+No revs given, searching automatically for latest released tags...
+Found toRev tag release-4.11.0-688
+Found fromRev tag release-4.11.0-687
+Commits between release-4.11.0-687 and release-4.11.0-688:
+* 3d1d171	FLEX-3258 ~ Adds unit tests for XMLGregorianCalendarToDateTimeConverter.
+
