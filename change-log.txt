@@ -1,6 +1,5 @@
 No revs given, searching automatically for latest released tags...
-Found toRev tag development-291
-Found fromRev tag development-290
-Commits between development-290 and development-291:
-* 31e4190	Adapted version to 4.10.0-SNAPSHOT
+Found toRev tag development-ci-36
+Found fromRev tag master-development-335
+Commits between master-development-335 and development-ci-36:
 
