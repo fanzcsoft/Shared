@@ -8,6 +8,8 @@
 package com.alliander.osgp.dto.valueobjects.microgrids;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.joda.time.DateTime;
 
@@ -19,12 +21,15 @@ public class MeasurementDto extends MeasurementIdentifierDto implements Serializ
     private DateTime time;
     private double value;
 
-    public MeasurementDto(final int id, final String node, final int qualifier, final DateTime time,
-            final double value) {
+    private List<PhaseDto> phases;
+
+    public MeasurementDto(final int id, final String node, final int qualifier, final DateTime time, final double value,
+            final List<PhaseDto> phases) {
         super(id, node);
         this.qualifier = qualifier;
         this.time = time;
         this.value = value;
+        this.phases = new ArrayList<>(phases);
     }
 
     public int getQualifier() {
@@ -38,4 +43,9 @@ public class MeasurementDto extends MeasurementIdentifierDto implements Serializ
     public double getValue() {
         return this.value;
     }
+
+    public List<PhaseDto> getPhases() {
+        return new ArrayList<>(this.phases);
+    }
+
 }

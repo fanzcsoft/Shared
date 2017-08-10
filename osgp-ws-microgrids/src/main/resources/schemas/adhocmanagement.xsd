@@ -100,6 +100,11 @@
     <xsd:attribute name="node" type="xsd:string" use="required" />
   </xsd:complexType>
 
+  <xsd:complexType name="PhaseIdentifier">
+    <xsd:attribute name="id" type="xsd:int" use="optional" />
+    <xsd:attribute name="name" type="xsd:string" use="required" />
+  </xsd:complexType>
+
   <xsd:complexType name="ProfileIdentifier">
     <xsd:attribute name="id" type="xsd:int" use="required" />
     <xsd:attribute name="node" type="xsd:string" use="required" />
@@ -186,14 +191,32 @@
   <xsd:complexType name="Measurement">
     <xsd:complexContent>
       <xsd:extension base="tns:MeasurementIdentifier">
+
+		<xsd:choice>
+          <xsd:element name="Phase" type="tns:Phase" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:sequence>
+            <xsd:element name="Qualifier" type="xsd:int" />
+            <xsd:element name="Time" type="xsd:dateTime" />
+            <xsd:element name="Value" type="xsd:double" />
+          </xsd:sequence>
+        </xsd:choice>
+      </xsd:extension>
+    
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="Phase">
+    <xsd:complexContent>
+      <xsd:extension base="tns:PhaseIdentifier">
         <xsd:sequence>
-          <xsd:element name="Qualifier" type="xsd:int" />
-          <xsd:element name="Time" type="xsd:dateTime" />
-          <xsd:element name="Value" type="xsd:double" />
+          <xsd:element name="Qualifier" type="xsd:int"/>
+          <xsd:element name="Time" type="xsd:dateTime"/>
+          <xsd:element name="Value" type="xsd:double"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
+
 
   <xsd:complexType name="Profile">
     <xsd:complexContent>
