@@ -193,7 +193,7 @@
       <xsd:extension base="tns:MeasurementIdentifier">
 
 		<xsd:choice>
-          <xsd:element name="Phase" type="tns:Phase" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="Phases" type="tns:Phase" minOccurs="0" maxOccurs="unbounded"/>
           <xsd:sequence>
             <xsd:element name="Qualifier" type="xsd:int" />
             <xsd:element name="Time" type="xsd:dateTime" />
