@@ -4,14 +4,14 @@
   <jxb:bindings schemaLocation="common.xsd">
     <jxb:schemaBindings>
       <jxb:package
-        name="com.alliander.osgp.adapter.ws.schema.publiclighting.common"></jxb:package>
+        name="com.alliander.osgp.adapter.ws.schema.loadmanagement.common"></jxb:package>
     </jxb:schemaBindings>
   </jxb:bindings>
 
-  <jxb:bindings schemaLocation="pl-adhocmanagement.xsd">
+  <jxb:bindings schemaLocation="pl-schedulemanagement.xsd">
     <jxb:schemaBindings>
       <jxb:package
-        name="com.alliander.osgp.adapter.ws.schema.publiclighting.adhocmanagement"></jxb:package>
+        name="com.alliander.osgp.adapter.ws.schema.loadmanagement.schedulemanagement"></jxb:package>
     </jxb:schemaBindings>
   </jxb:bindings>
 

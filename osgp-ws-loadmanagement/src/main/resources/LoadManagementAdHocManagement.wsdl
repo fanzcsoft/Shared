@@ -2,20 +2,20 @@
 <!-- Platform version: ${display.version} -->
 
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:ahman="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10"
+  xmlns:ahman="http://www.alliander.com/schemas/osgp/loadmanagement/adhocmanagement/2014/10"
   xmlns:common="http://www.alliander.com/schemas/osgp/common/2014/10"
   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:tns="http://www.alliander.com/definitions/osgp/publiclighting/adhocmanagement-v1.0"
-  targetNamespace="http://www.alliander.com/definitions/osgp/publiclighting/adhocmanagement-v1.0">
+  xmlns:tns="http://www.alliander.com/definitions/osgp/loadmanagement/adhocmanagement-v1.0"
+  targetNamespace="http://www.alliander.com/definitions/osgp/loadmanagement/adhocmanagement-v1.0">
 
   <wsdl:types>
     <xsd:schema
-      targetNamespace="http://www.alliander.com/definitions/osgp/publiclighting/adhocmanagement/imports"
+      targetNamespace="http://www.alliander.com/definitions/osgp/loadmanagement/adhocmanagement/imports"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <xsd:import
-        namespace="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10"
-        schemaLocation="schemas/pl-adhocmanagement.xsd" />
+        namespace="http://www.alliander.com/schemas/osgp/loadmanagement/adhocmanagement/2014/10"
+        schemaLocation="schemas/lm-adhocmanagement.xsd" />
     </xsd:schema>
   </wsdl:types>
 
@@ -170,7 +170,7 @@
     </wsdl:part>
   </wsdl:message>
 
-  <wsdl:portType name="PublicLightingAdHocManagementPort">
+  <wsdl:portType name="LoadManagementAdHocManagementPort">
     <wsdl:operation name="FindAllDevices">
       <wsdl:input message="tns:FindAllDevicesRequest" name="FindAllDevicesRequest">
       </wsdl:input>
@@ -245,8 +245,8 @@
     </wsdl:operation>
   </wsdl:portType>
 
-  <wsdl:binding name="PublicLightingAdHocManagementPortSoap11"
-    type="tns:PublicLightingAdHocManagementPort">
+  <wsdl:binding name="LoadManagementAdHocManagementPortSoap11"
+    type="tns:LoadManagementAdHocManagementPort">
     <soap:binding style="document"
       transport="http://schemas.xmlsoap.org/soap/http" />
 
@@ -407,11 +407,11 @@
     </wsdl:operation>
   </wsdl:binding>
 
-  <wsdl:service name="PublicLightingAdHocManagementPortService">
-    <wsdl:port binding="tns:PublicLightingAdHocManagementPortSoap11"
-      name="PublicLightingAdHocManagementPortSoap11">
+  <wsdl:service name="LoadManagementAdHocManagementPortService">
+    <wsdl:port binding="tns:LoadManagementAdHocManagementPortSoap11"
+      name="LoadManagementAdHocManagementPortSoap11">
       <soap:address
-        location="http://localhost:8080/osgp-adapter-ws-publiclighting/publiclighting/adHocManagementService/" />
+        location="http://localhost:8080/osgp-adapter-ws-loadmanagement/loadmanagement/adHocManagementService/" />
     </wsdl:port>
   </wsdl:service>
 

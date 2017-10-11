@@ -2,20 +2,20 @@
 <!-- Platform version: ${display.version} -->
 
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:sman="http://www.alliander.com/schemas/osgp/publiclighting/schedulemanagement/2014/10"
+  xmlns:sman="http://www.alliander.com/schemas/osgp/loadmanagement/schedulemanagement/2014/10"
   xmlns:common="http://www.alliander.com/schemas/osgp/common/2014/10"
   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:tns="http://www.alliander.com/definitions/osgp/publiclighting/schedulemanagement-v1.0"
-  targetNamespace="http://www.alliander.com/definitions/osgp/publiclighting/schedulemanagement-v1.0">
+  xmlns:tns="http://www.alliander.com/definitions/osgp/loadmanagement/schedulemanagement-v1.0"
+  targetNamespace="http://www.alliander.com/definitions/osgp/loadmanagement/schedulemanagement-v1.0">
 
   <wsdl:types>
     <xsd:schema
-      targetNamespace="http://www.alliander.com/definitions/osgp/publiclighting/schedulemanagement/imports"
+      targetNamespace="http://www.alliander.com/definitions/osgp/loadmanagement/schedulemanagement/imports"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <xsd:import
-        namespace="http://www.alliander.com/schemas/osgp/publiclighting/schedulemanagement/2014/10"
-        schemaLocation="schemas/pl-schedulemanagement.xsd" />
+        namespace="http://www.alliander.com/schemas/osgp/loadmanagement/schedulemanagement/2014/10"
+        schemaLocation="schemas/lm-schedulemanagement.xsd" />
     </xsd:schema>
   </wsdl:types>
 
@@ -49,7 +49,7 @@
     </wsdl:part>
   </wsdl:message>
 
-  <wsdl:portType name="PublicLightingScheduleManagementPort">
+  <wsdl:portType name="LoadManagementScheduleManagementPort">
 
     <wsdl:operation name="SetSchedule">
       <wsdl:input message="tns:SetScheduleRequest" name="SetScheduleRequest">
@@ -67,8 +67,8 @@
 
   </wsdl:portType>
 
-  <wsdl:binding name="PublicLightingScheduleManagementPortSoap11"
-    type="tns:PublicLightingScheduleManagementPort">
+  <wsdl:binding name="LoadManagementScheduleManagementPortSoap11"
+    type="tns:LoadManagementScheduleManagementPort">
     <soap:binding style="document"
       transport="http://schemas.xmlsoap.org/soap/http" />
 
@@ -106,11 +106,11 @@
 
   </wsdl:binding>
 
-  <wsdl:service name="PublicLightingScheduleManagementPortService">
-    <wsdl:port binding="tns:PublicLightingScheduleManagementPortSoap11"
-      name="PublicLightingScheduleManagementPortSoap11">
+  <wsdl:service name="LoadManagementScheduleManagementPortService">
+    <wsdl:port binding="tns:LoadManagementScheduleManagementPortSoap11"
+      name="LoadManagementScheduleManagementPortSoap11">
       <soap:address
-        location="http://localhost:8080/osgp-adapter-ws-publiclighting/publiclighting/scheduleManagementService/" />
+        location="http://localhost:8080/osgp-adapter-ws-loadmanagement/loadmanagement/scheduleManagementService/" />
     </wsdl:port>
   </wsdl:service>
 

@@ -20,7 +20,7 @@
         <version>1.5</version>
         <executions>
           <execution>
-            <id>public-lighting-ad-hoc-management</id>
+            <id>load-management-ad-hoc-management</id>
             <goals>
               <goal>xjc</goal>
             </goals>
@@ -31,13 +31,13 @@
               <schemaFiles>LoadManagementAdHocManagement.wsdl</schemaFiles>
               <wsdl>true</wsdl>
               <xmlschema>false</xmlschema>
-              <staleFile>${project.build.directory}/jaxb2/.schema-public-lighting-ad-hoc-management-stale-flag</staleFile>
+              <staleFile>${project.build.directory}/jaxb2/.schema-load-management-ad-hoc-management-stale-flag</staleFile>
               <!-- USE THIS ONLY FOR THE FIRST EXECUTION -->
               <clearOutputDir>true</clearOutputDir>
             </configuration>
           </execution>
           <execution>
-            <id>public-lighting-schedule-management</id>
+            <id>load-management-schedule-management</id>
             <goals>
               <goal>xjc</goal>
             </goals>
@@ -48,7 +48,7 @@
               <schemaFiles>LoadManagementScheduleManagement.wsdl</schemaFiles>
               <wsdl>true</wsdl>
               <xmlschema>false</xmlschema>
-              <staleFile>${project.build.directory}/jaxb2/.schema-public-lighting-schedule-management-stale-flag</staleFile>
+              <staleFile>${project.build.directory}/jaxb2/.schema-load-management-schedule-management-stale-flag</staleFile>
               <!-- USE THIS FOR ALL EXECUTIONS EXCEPT THE FIRST -->
               <clearOutputDir>false</clearOutputDir>
             </configuration>
@@ -65,7 +65,7 @@
               <schemaFiles>DeviceMonitoring.wsdl</schemaFiles>
               <wsdl>true</wsdl>
               <xmlschema>false</xmlschema>
-              <staleFile>${project.build.directory}/jaxb2/.schema-loadmanagement-device-monitoring-stale-flag</staleFile>
+              <staleFile>${project.build.directory}/jaxb2/.schema-load-management-device-monitoring-stale-flag</staleFile>
               <!-- USE THIS FOR ALL EXECUTIONS EXCEPT THE FIRST -->
               <clearOutputDir>false</clearOutputDir>
             </configuration>

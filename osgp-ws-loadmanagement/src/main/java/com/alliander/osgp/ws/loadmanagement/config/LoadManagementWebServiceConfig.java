@@ -54,22 +54,22 @@ public class LoadManagementWebServiceConfig {
     }
 
     @Bean(name = "LoadManagementAdHocManagement")
-    public WsdlDefinition publicLightingAdHocManagementWsdl() {
+    public WsdlDefinition loadManagementAdHocManagementWsdl() {
         return new SimpleWsdl11Definition(new ClassPathResource(LM_ADHOC_MANAGEMENT_WSDL_PATH));
     }
 
     @Bean(name = "lm-adhocmanagement")
-    public SimpleXsdSchema publicLightingAdHocManagementXsd() {
+    public SimpleXsdSchema loadManagementAdHocManagementXsd() {
         return new SimpleXsdSchema(new ClassPathResource(LM_ADHOCMANAGEMENT_XSD_PATH));
     }
 
     @Bean(name = "LoadManagementScheduleManagement")
-    public WsdlDefinition publicLightingScheduleManagementWsdl() {
+    public WsdlDefinition loadManagementScheduleManagementWsdl() {
         return new SimpleWsdl11Definition(new ClassPathResource(LM_SCHEDULE_MANAGEMENT_WSDL_PATH));
     }
 
     @Bean(name = "lm-schedulemanagement")
-    public SimpleXsdSchema publicLightingScheduleManagementXsd() {
+    public SimpleXsdSchema loadManagementScheduleManagementXsd() {
         return new SimpleXsdSchema(new ClassPathResource(LM_SCHEDULEMANAGEMENT_XSD_PATH));
     }
 }

@@ -2,19 +2,19 @@
 <!-- Platform version: ${display.version} -->
 
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-  xmlns:dmon="http://www.alliander.com/schemas/osgp/publiclighting/devicemonitoring/2014/10"
+  xmlns:dmon="http://www.alliander.com/schemas/osgp/loadmanagement/devicemonitoring/2014/10"
   xmlns:common="http://www.alliander.com/schemas/osgp/common/2014/10"
   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-  xmlns:tns="http://www.alliander.com/definitions/osgp/publiclighting/devicemonitoring-v1.0"
-  targetNamespace="http://www.alliander.com/definitions/osgp/publiclighting/devicemonitoring-v1.0">
+  xmlns:tns="http://www.alliander.com/definitions/osgp/loadmanagement/devicemonitoring-v1.0"
+  targetNamespace="http://www.alliander.com/definitions/osgp/loadmanagement/devicemonitoring-v1.0">
 
   <wsdl:types>
     <xsd:schema
-      targetNamespace="http://www.alliander.com/definitions/osgp/publiclighting/devicemonitoring/imports"
+      targetNamespace="http://www.alliander.com/definitions/osgp/loadmanagement/devicemonitoring/imports"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
       <xsd:import
-        namespace="http://www.alliander.com/schemas/osgp/publiclighting/devicemonitoring/2014/10"
+        namespace="http://www.alliander.com/schemas/osgp/loadmanagement/devicemonitoring/2014/10"
         schemaLocation="schemas/devicemonitoring.xsd" />
     </xsd:schema>
   </wsdl:types>
@@ -191,7 +191,7 @@
   <wsdl:service name="DeviceMonitoringPortService">
     <wsdl:port binding="tns:DeviceMonitoringPortSoap11" name="DeviceMonitoringPortSoap11">
       <soap:address
-        location="http://localhost:8080/osgp-adapter-ws-publiclighting/publiclighting/deviceMonitoringService/" />
+        location="http://localhost:8080/osgp-adapter-ws-loadmanagement/loadmanagement/deviceMonitoringService/" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
