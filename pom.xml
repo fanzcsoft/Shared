@@ -92,5 +92,6 @@
         <module>osgp-ws-publiclighting</module>
         <module>osgp-ws-microgrids</module>
         <module>osgp-ws-distributionautomation</module>
+        <module>osgp-ws-loadmanagement</module>
     </modules>
 </project>
