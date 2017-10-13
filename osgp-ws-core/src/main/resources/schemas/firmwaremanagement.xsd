@@ -190,7 +190,7 @@
         <xsd:element name="ModelCode" minOccurs="0">
           <xsd:simpleType>
             <xsd:restriction base="xsd:string">
-              <xsd:maxLength value="15" />
+              <xsd:maxLength value="255" />
             </xsd:restriction>
           </xsd:simpleType>
         </xsd:element>
@@ -435,18 +435,19 @@
 
   <xsd:complexType name="Manufacturer">
     <xsd:sequence>
-      <xsd:element name="Name" minOccurs="1" maxOccurs="1">
-        <xsd:simpleType>
-          <xsd:restriction base="xsd:string">
-            <xsd:maxLength value="50" />
-          </xsd:restriction>
-        </xsd:simpleType>
-      </xsd:element>
-      <xsd:element name="ManufacturerId" minOccurs="1"
+      <xsd:element name="Id" type="xsd:int" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Code" minOccurs="1"
         maxOccurs="1">
         <xsd:simpleType>
           <xsd:restriction base="xsd:string">
             <xsd:maxLength value="4" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Name" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50" />
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
@@ -468,7 +469,7 @@
       <xsd:element name="ModelCode" minOccurs="0" maxOccurs="1">
         <xsd:simpleType>
           <xsd:restriction base="xsd:string">
-            <xsd:maxLength value="15" />
+            <xsd:maxLength value="255" />
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
@@ -502,7 +503,7 @@
       <xsd:element name="ModelCode" minOccurs="0">
         <xsd:simpleType>
           <xsd:restriction base="xsd:string">
-            <xsd:maxLength value="15" />
+            <xsd:maxLength value="255" />
           </xsd:restriction>
         </xsd:simpleType>
       </xsd:element>
