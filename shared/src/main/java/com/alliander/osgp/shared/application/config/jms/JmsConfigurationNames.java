@@ -72,6 +72,12 @@ public class JmsConfigurationNames {
 
     public static final String JMS_PROTOCOL_LOG_ITEM_REQUESTS = "jms.protocol.log.item.requests";
 
+    public static final String JMS_LOADMANAGEMENT_REQUESTS = "jms.loadmanagement.requests";
+
+    public static final String JMS_LOADMANAGEMENT_RESPONSES = "jms.loadmanagement.responses";
+
+    public static final String JMS_LOADMANAGEMENT_LOGGING = "jms.loadmanagement.logging";
+
     private JmsConfigurationNames() {
         // Empty private constructor to prevent creating an instance of this
         // utility class.
