@@ -8,7 +8,7 @@
     </jxb:schemaBindings>
   </jxb:bindings>
 
-  <jxb:bindings schemaLocation="pl-adhocmanagement.xsd">
+  <jxb:bindings schemaLocation="lm-adhocmanagement.xsd">
     <jxb:schemaBindings>
       <jxb:package
         name="com.alliander.osgp.adapter.ws.schema.loadmanagement.adhocmanagement"></jxb:package>

@@ -8,7 +8,7 @@
     </jxb:schemaBindings>
   </jxb:bindings>
 
-  <jxb:bindings schemaLocation="pl-schedulemanagement.xsd">
+  <jxb:bindings schemaLocation="lm-schedulemanagement.xsd">
     <jxb:schemaBindings>
       <jxb:package
         name="com.alliander.osgp.adapter.ws.schema.loadmanagement.schedulemanagement"></jxb:package>
