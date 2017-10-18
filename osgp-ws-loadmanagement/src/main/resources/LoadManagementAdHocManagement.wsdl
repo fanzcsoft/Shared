@@ -411,7 +411,7 @@
     <wsdl:port binding="tns:LoadManagementAdHocManagementPortSoap11"
       name="LoadManagementAdHocManagementPortSoap11">
       <soap:address
-        location="http://localhost:8080/osgp-adapter-ws-loadmanagement/loadmanagement/adHocManagementService/" />
+        location="https://localhost/osgp-adapter-ws-loadmanagement/loadmanagement/adHocManagementService/" />
     </wsdl:port>
   </wsdl:service>
 
