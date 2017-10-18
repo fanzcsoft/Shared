@@ -8,5 +8,5 @@
 package com.alliander.osgp.dto.valueobjects;
 
 public enum DomainTypeDto {
-    PUBLIC_LIGHTING, TARIFF_SWITCHING
+    PUBLIC_LIGHTING, TARIFF_SWITCHING, LOAD_MANAGEMENT
 }
