@@ -99,50 +99,6 @@
     </xsd:complexType>
   </xsd:element>
 
-  <xsd:element name="ResumeScheduleRequest">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="DeviceIdentification" type="common:Identification"
-          minOccurs="1" />
-        <xsd:element minOccurs="0" name="Index">
-          <xsd:simpleType>
-            <xsd:restriction base="xsd:int">
-              <xsd:minInclusive value="0" />
-              <xsd:maxInclusive value="6" />
-            </xsd:restriction>
-          </xsd:simpleType>
-        </xsd:element>
-        <xsd:element name="IsImmediate" type="xsd:boolean" />
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
-
-  <xsd:element name="ResumeScheduleAsyncResponse">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="AsyncResponse" type="common:AsyncResponse" />
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
-
-  <xsd:element name="ResumeScheduleAsyncRequest">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="AsyncRequest" type="common:AsyncRequest" />
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
-
-  <xsd:element name="ResumeScheduleResponse">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="Result" type="common:OsgpResultType"
-          minOccurs="1" />
-        <xsd:element name="Description" type="xsd:string" />
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
-
   <xsd:complexType name="DeviceStatus">
     <xsd:annotation>
       <xsd:documentation>
@@ -150,8 +106,7 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" name="SwitchValues"
-        type="tns:LightValue">
+      <xsd:element maxOccurs="unbounded" name="SwitchValues" type="tns:SwitchValue">
         <xsd:annotation>
           <xsd:documentation>
             The list of 'SwitchValues' can contain:
@@ -163,7 +118,7 @@
         minOccurs="1" maxOccurs="1" />
       <xsd:element name="ActualLinkType" type="tns:LinkType"
         minOccurs="1" maxOccurs="1" />
-      <xsd:element name="SwitchType" type="tns:LightType"
+      <xsd:element name="SwitchType" type="tns:SwitchType"
         minOccurs="0" maxOccurs="1" />
       <xsd:element minOccurs="0" maxOccurs="8"
         name="EventNotifications" type="tns:EventNotificationType" />
@@ -223,16 +178,30 @@
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:simpleType name="LightType">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="LT_NOT_SET" />
-      <xsd:enumeration value="RELAY" />
-      <xsd:enumeration value="ONE_TO_TEN_VOLT" />
-      <xsd:enumeration value="ONE_TO_TEN_VOLT_REVERSE" />
-      <xsd:enumeration value="ONE_TO_TWENTY_FOUR_VOLT" />
-      <xsd:enumeration value="DALI" />
-    </xsd:restriction>
-  </xsd:simpleType>
+    <xsd:complexType name="SwitchValue">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Index">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:int">
+                        <xsd:minInclusive value="0" />
+                        <xsd:maxInclusive value="6" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="On" type="xsd:boolean" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="SwitchType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="LT_NOT_SET" />
+            <xsd:enumeration value="RELAY" />
+            <xsd:enumeration value="ONE_TO_TEN_VOLT" />
+            <xsd:enumeration value="ONE_TO_TEN_VOLT_REVERSE" />
+            <xsd:enumeration value="ONE_TO_TWENTY_FOUR_VOLT" />
+            <xsd:enumeration value="DALI" />
+        </xsd:restriction>
+    </xsd:simpleType>
 
   <xsd:simpleType name="LinkType">
     <xsd:restriction base="xsd:string">
