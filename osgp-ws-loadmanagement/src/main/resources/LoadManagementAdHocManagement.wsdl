@@ -34,33 +34,33 @@
     </wsdl:part>
   </wsdl:message>
 
-  <wsdl:message name="SetLightHeader">
+  <wsdl:message name="SetSwitchHeader">
     <wsdl:part element="common:OrganisationIdentification"
       name="OrganisationIdentification" />
     <wsdl:part element="common:UserName" name="UserName" />
     <wsdl:part element="common:ApplicationName" name="ApplicationName" />
   </wsdl:message>
-  <wsdl:message name="SetLightRequest">
-    <wsdl:part element="ahman:SetLightRequest" name="SetLightRequest">
+  <wsdl:message name="SetSwitchRequest">
+    <wsdl:part element="ahman:SetSwitchRequest" name="SetSwitchRequest">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="SetLightAsyncResponse">
-    <wsdl:part element="ahman:SetLightAsyncResponse" name="SetLightAsyncResponse">
+  <wsdl:message name="SetSwitchAsyncResponse">
+    <wsdl:part element="ahman:SetSwitchAsyncResponse" name="SetSwitchAsyncResponse">
     </wsdl:part>
   </wsdl:message>
 
-  <wsdl:message name="SetLightAsyncHeader">
+  <wsdl:message name="SetSwitchAsyncHeader">
     <wsdl:part element="common:OrganisationIdentification"
       name="OrganisationIdentification" />
     <wsdl:part element="common:UserName" name="UserName" />
     <wsdl:part element="common:ApplicationName" name="ApplicationName" />
   </wsdl:message>
-  <wsdl:message name="SetLightAsyncRequest">
-    <wsdl:part element="ahman:SetLightAsyncRequest" name="SetLightAsyncRequest">
+  <wsdl:message name="SetSwitchAsyncRequest">
+    <wsdl:part element="ahman:SetSwitchAsyncRequest" name="SetSwitchAsyncRequest">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="SetLightResponse">
-    <wsdl:part element="ahman:SetLightResponse" name="SetLightResponse">
+  <wsdl:message name="SetSwitchResponse">
+    <wsdl:part element="ahman:SetSwitchResponse" name="SetSwitchResponse">
     </wsdl:part>
   </wsdl:message>
 
@@ -126,50 +126,6 @@
     </wsdl:part>
   </wsdl:message>
 
-  <wsdl:message name="SetTransitionHeader">
-    <wsdl:part element="common:OrganisationIdentification"
-      name="OrganisationIdentification" />
-    <wsdl:part element="common:UserName" name="UserName" />
-    <wsdl:part element="common:ApplicationName" name="ApplicationName" />
-  </wsdl:message>
-  <wsdl:message name="SetTransitionRequest">
-    <wsdl:part element="ahman:SetTransitionRequest" name="SetTransitionRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SetTransitionAsyncResponse">
-    <wsdl:part element="ahman:SetTransitionAsyncResponse"
-      name="SetTransitionAsyncResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SetTransitionAsyncHeader">
-    <wsdl:part element="common:OrganisationIdentification"
-      name="OrganisationIdentification" />
-    <wsdl:part element="common:UserName" name="UserName" />
-    <wsdl:part element="common:ApplicationName" name="ApplicationName" />
-  </wsdl:message>
-  <wsdl:message name="SetTransitionAsyncRequest">
-    <wsdl:part element="ahman:SetTransitionAsyncRequest" name="SetTransitionAsyncRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SetTransitionResponse">
-    <wsdl:part element="ahman:SetTransitionResponse" name="SetTransitionResponse">
-    </wsdl:part>
-  </wsdl:message>
-
-  <wsdl:message name="SetLightMeasurementDeviceHeader">
-    <wsdl:part element="common:OrganisationIdentification" name="OrganisationIdentification" />
-    <wsdl:part element="common:UserName" name="UserName" />
-    <wsdl:part element="common:ApplicationName" name="ApplicationName" />
-  </wsdl:message>
-  <wsdl:message name="SetLightMeasurementDeviceRequest">
-    <wsdl:part element="ahman:SetLightMeasurementDeviceRequest" name="SetLightMeasurementDeviceRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SetLightMeasurementDeviceResponse">
-    <wsdl:part element="ahman:SetLightMeasurementDeviceResponse" name="SetLightMeasurementDeviceResponse">
-    </wsdl:part>
-  </wsdl:message>
-
   <wsdl:portType name="LoadManagementAdHocManagementPort">
     <wsdl:operation name="FindAllDevices">
       <wsdl:input message="tns:FindAllDevicesRequest" name="FindAllDevicesRequest">
@@ -179,16 +135,16 @@
       </wsdl:output>
     </wsdl:operation>
 
-    <wsdl:operation name="SetLight">
-      <wsdl:input message="tns:SetLightRequest" name="SetLightRequest">
+    <wsdl:operation name="SetSwitch">
+      <wsdl:input message="tns:SetSwitchRequest" name="SetSwitchRequest">
       </wsdl:input>
-      <wsdl:output message="tns:SetLightAsyncResponse" name="SetLightAsyncResponse">
+      <wsdl:output message="tns:SetSwitchAsyncResponse" name="SetSwitchAsyncResponse">
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSetLightResponse">
-      <wsdl:input message="tns:SetLightAsyncRequest" name="SetLightAsyncRequest">
+    <wsdl:operation name="GetSetSwitchResponse">
+      <wsdl:input message="tns:SetSwitchAsyncRequest" name="SetSwitchAsyncRequest">
       </wsdl:input>
-      <wsdl:output message="tns:SetLightResponse" name="SetLightResponse">
+      <wsdl:output message="tns:SetSwitchResponse" name="SetSwitchResponse">
       </wsdl:output>
     </wsdl:operation>
 
@@ -221,28 +177,6 @@
         name="ResumeScheduleResponse">
       </wsdl:output>
     </wsdl:operation>
-
-    <wsdl:operation name="SetTransition">
-      <wsdl:input message="tns:SetTransitionRequest" name="SetTransitionRequest">
-      </wsdl:input>
-      <wsdl:output message="tns:SetTransitionAsyncResponse"
-        name="SetTransitionAsyncResponse">
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSetTransitionResponse">
-      <wsdl:input message="tns:SetTransitionAsyncRequest"
-        name="SetTransitionAsyncRequest">
-      </wsdl:input>
-      <wsdl:output message="tns:SetTransitionResponse" name="SetTransitionResponse">
-      </wsdl:output>
-    </wsdl:operation>
-    
-    <wsdl:operation name="SetLightMeasurementDevice">
-      <wsdl:input message="tns:SetLightMeasurementDeviceRequest" name="SetLightMeasurementDeviceRequest">
-      </wsdl:input>
-      <wsdl:output message="tns:SetLightMeasurementDeviceResponse" name="SetLightMeasurementDeviceResponse">
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:portType>
 
   <wsdl:binding name="LoadManagementAdHocManagementPortSoap11"
@@ -266,33 +200,33 @@
       </wsdl:output>
     </wsdl:operation>
 
-    <wsdl:operation name="SetLight">
+    <wsdl:operation name="SetSwitch">
       <soap:operation soapAction="" />
-      <wsdl:input name="SetLightRequest">
-        <soap:header message="tns:SetLightHeader" part="OrganisationIdentification"
+      <wsdl:input name="SetSwitchRequest">
+        <soap:header message="tns:SetSwitchHeader" part="OrganisationIdentification"
           use="literal" />
-        <soap:header message="tns:SetLightHeader" part="UserName"
+        <soap:header message="tns:SetSwitchHeader" part="UserName"
           use="literal" />
-        <soap:header message="tns:SetLightHeader" part="ApplicationName"
+        <soap:header message="tns:SetSwitchHeader" part="ApplicationName"
           use="literal" />
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="SetLightAsyncResponse">
+      <wsdl:output name="SetSwitchAsyncResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSetLightResponse">
+    <wsdl:operation name="GetSetSwitchResponse">
       <soap:operation soapAction="" />
-      <wsdl:input name="SetLightAsyncRequest">
-        <soap:header message="tns:SetLightAsyncHeader" part="OrganisationIdentification"
+      <wsdl:input name="SetSwitchAsyncRequest">
+        <soap:header message="tns:SetSwitchAsyncHeader" part="OrganisationIdentification"
           use="literal" />
-        <soap:header message="tns:SetLightAsyncHeader" part="UserName"
+        <soap:header message="tns:SetSwitchAsyncHeader" part="UserName"
           use="literal" />
-        <soap:header message="tns:SetLightAsyncHeader" part="ApplicationName"
+        <soap:header message="tns:SetSwitchAsyncHeader" part="ApplicationName"
           use="literal" />
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="SetLightResponse">
+      <wsdl:output name="SetSwitchResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -359,52 +293,6 @@
       </wsdl:output>
     </wsdl:operation>
 
-    <wsdl:operation name="SetTransition">
-      <soap:operation soapAction="" />
-      <wsdl:input name="SetTransitionRequest">
-        <soap:header message="tns:SetTransitionHeader" part="OrganisationIdentification"
-          use="literal" />
-        <soap:header message="tns:SetTransitionHeader" part="UserName"
-          use="literal" />
-        <soap:header message="tns:SetTransitionHeader" part="ApplicationName"
-          use="literal" />
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="SetTransitionAsyncResponse">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSetTransitionResponse">
-      <soap:operation soapAction="" />
-      <wsdl:input name="SetTransitionAsyncRequest">
-        <soap:header message="tns:SetTransitionAsyncHeader"
-          part="OrganisationIdentification" use="literal" />
-        <soap:header message="tns:SetTransitionAsyncHeader"
-          part="UserName" use="literal" />
-        <soap:header message="tns:SetTransitionAsyncHeader"
-          part="ApplicationName" use="literal" />
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="SetTransitionResponse">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    
-    <wsdl:operation name="SetLightMeasurementDevice">
-      <soap:operation soapAction="" />
-      <wsdl:input name="SetLightMeasurementDeviceRequest">
-        <soap:header message="tns:SetLightMeasurementDeviceHeader" part="OrganisationIdentification"
-          use="literal" />
-        <soap:header message="tns:SetLightMeasurementDeviceHeader" part="UserName"
-          use="literal" />
-        <soap:header message="tns:SetLightMeasurementDeviceHeader" part="ApplicationName"
-          use="literal" />
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="SetLightMeasurementDeviceResponse">
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
 
   <wsdl:service name="LoadManagementAdHocManagementPortService">

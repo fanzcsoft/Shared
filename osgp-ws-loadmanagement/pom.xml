@@ -36,40 +36,6 @@
               <clearOutputDir>true</clearOutputDir>
             </configuration>
           </execution>
-          <execution>
-            <id>load-management-schedule-management</id>
-            <goals>
-              <goal>xjc</goal>
-            </goals>
-            <configuration>
-              <bindingDirectory>src/main/resources/schemas</bindingDirectory>
-              <bindingFiles>lm-schedulemanagement.xjb</bindingFiles>
-              <schemaDirectory>src/main/resources</schemaDirectory>
-              <schemaFiles>LoadManagementScheduleManagement.wsdl</schemaFiles>
-              <wsdl>true</wsdl>
-              <xmlschema>false</xmlschema>
-              <staleFile>${project.build.directory}/jaxb2/.schema-load-management-schedule-management-stale-flag</staleFile>
-              <!-- USE THIS FOR ALL EXECUTIONS EXCEPT THE FIRST -->
-              <clearOutputDir>false</clearOutputDir>
-            </configuration>
-          </execution>
-          <execution>
-            <id>device-monitoring</id>
-            <goals>
-              <goal>xjc</goal>
-            </goals>
-            <configuration>
-              <bindingDirectory>src/main/resources/schemas</bindingDirectory>
-              <bindingFiles>devicemonitoring.xjb</bindingFiles>
-              <schemaDirectory>src/main/resources</schemaDirectory>
-              <schemaFiles>DeviceMonitoring.wsdl</schemaFiles>
-              <wsdl>true</wsdl>
-              <xmlschema>false</xmlschema>
-              <staleFile>${project.build.directory}/jaxb2/.schema-load-management-device-monitoring-stale-flag</staleFile>
-              <!-- USE THIS FOR ALL EXECUTIONS EXCEPT THE FIRST -->
-              <clearOutputDir>false</clearOutputDir>
-            </configuration>
-          </execution>
         </executions>
       </plugin>
     </plugins>

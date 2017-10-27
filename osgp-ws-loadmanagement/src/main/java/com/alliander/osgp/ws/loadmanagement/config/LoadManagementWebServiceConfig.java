@@ -20,20 +20,14 @@ import org.springframework.xml.xsd.SimpleXsdSchema;
 public class LoadManagementWebServiceConfig {
 
     private static final String COMMON_XSD_PATH = "schemas/common.xsd";
-    private static final String DEVICE_MONITORING_XSD_PATH = "schemas/devicemonitoring.xsd";
     private static final String LM_ADHOCMANAGEMENT_XSD_PATH = "schemas/lm-adhocmanagement.xsd";
-    private static final String LM_SCHEDULEMANAGEMENT_XSD_PATH = "schemas/lm-schedulemanagement.xsd";
-
-    private static final String DEVICE_MONITORING_WSDL_PATH = "DeviceMonitoring.wsdl";
     private static final String LM_ADHOC_MANAGEMENT_WSDL_PATH = "LoadManagementAdHocManagement.wsdl";
-    private static final String LM_SCHEDULE_MANAGEMENT_WSDL_PATH = "LoadManagementScheduleManagement.wsdl";
 
     @Bean
     public PayloadValidatingInterceptor payloadValidatingInterceptor() {
         final PayloadValidatingInterceptor payloadValidatingInterceptor = new PayloadValidatingInterceptor();
         final Resource[] resources = new Resource[] { new ClassPathResource(COMMON_XSD_PATH),
-                new ClassPathResource(DEVICE_MONITORING_XSD_PATH), new ClassPathResource(LM_ADHOCMANAGEMENT_XSD_PATH),
-                new ClassPathResource(LM_SCHEDULEMANAGEMENT_XSD_PATH) };
+                new ClassPathResource(LM_ADHOCMANAGEMENT_XSD_PATH) };
         payloadValidatingInterceptor.setSchemas(resources);
         return payloadValidatingInterceptor;
     }
@@ -41,16 +35,6 @@ public class LoadManagementWebServiceConfig {
     @Bean(name = "common")
     public SimpleXsdSchema commonXsd() {
         return new SimpleXsdSchema(new ClassPathResource(COMMON_XSD_PATH));
-    }
-
-    @Bean(name = "DeviceMonitoring")
-    public WsdlDefinition deviceMonitoringWsdl() {
-        return new SimpleWsdl11Definition(new ClassPathResource(DEVICE_MONITORING_WSDL_PATH));
-    }
-
-    @Bean(name = "devicemonitoring")
-    public SimpleXsdSchema deviceMonitoringXsd() {
-        return new SimpleXsdSchema(new ClassPathResource(DEVICE_MONITORING_XSD_PATH));
     }
 
     @Bean(name = "LoadManagementAdHocManagement")
@@ -61,15 +45,5 @@ public class LoadManagementWebServiceConfig {
     @Bean(name = "lm-adhocmanagement")
     public SimpleXsdSchema loadManagementAdHocManagementXsd() {
         return new SimpleXsdSchema(new ClassPathResource(LM_ADHOCMANAGEMENT_XSD_PATH));
-    }
-
-    @Bean(name = "LoadManagementScheduleManagement")
-    public WsdlDefinition loadManagementScheduleManagementWsdl() {
-        return new SimpleWsdl11Definition(new ClassPathResource(LM_SCHEDULE_MANAGEMENT_WSDL_PATH));
-    }
-
-    @Bean(name = "lm-schedulemanagement")
-    public SimpleXsdSchema loadManagementScheduleManagementXsd() {
-        return new SimpleXsdSchema(new ClassPathResource(LM_SCHEDULEMANAGEMENT_XSD_PATH));
     }
 }
