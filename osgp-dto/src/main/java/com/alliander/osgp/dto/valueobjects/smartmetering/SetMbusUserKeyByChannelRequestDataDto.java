@@ -9,20 +9,14 @@ package com.alliander.osgp.dto.valueobjects.smartmetering;
 
 import java.io.Serializable;
 
-public class GetMBusDeviceOnChannelRequestDataDto implements Serializable, ActionRequestDto {
+public class SetMbusUserKeyByChannelRequestDataDto implements Serializable, ActionRequestDto {
 
-    private static final long serialVersionUID = -5720146325505371298L;
+    private static final long serialVersionUID = -5793708223405661077L;
 
-    private final String gatewayDeviceIdentification;
     private final short channel;
 
-    public GetMBusDeviceOnChannelRequestDataDto(final String gatewayDeviceIdentification, final short channel) {
-        this.gatewayDeviceIdentification = gatewayDeviceIdentification;
+    public SetMbusUserKeyByChannelRequestDataDto(final short channel) {
         this.channel = channel;
-    }
-
-    public String getGatewayDeviceIdentification() {
-        return this.gatewayDeviceIdentification;
     }
 
     public short getChannel() {
