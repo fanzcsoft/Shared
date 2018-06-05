@@ -10,122 +10,81 @@ package com.alliander.osgp.dto.valueobjects;
 import java.io.Serializable;
 import java.util.List;
 
-import org.joda.time.DateTime;
-
 public class ScheduleDto implements Serializable {
 
     /**
      * Serial Version UID.
      */
-    private static final long serialVersionUID = 7562344341386762082L;
+    private static final long serialVersionUID = 6516779611853805357L;
 
-    private WeekDayTypeDto weekDay;
+    private final Short astronomicalSunriseOffset;
+    private final Short astronomicalSunsetOffset;
 
-    private DateTime startDay;
+    private final List<ScheduleEntryDto> scheduleList;
 
-    private DateTime endDay;
+    private PageInfoDto pageInfo;
 
-    private ActionTimeTypeDto actionTime;
+    // Additional fields required for setting the astronomical offsets
+    private boolean setAstroOffsets;
+    private boolean getConfigurationFirst;
+    private ConfigurationDto configuration;
 
-    private String time;
-
-    private WindowTypeDto triggerWindow;
-
-    private List<LightValueDto> lightValue;
-
-    private TriggerTypeDto triggerType;
-
-    private Integer index;
-
-    private Boolean isEnabled;
-
-    private Integer minimumLightsOn;
-
-    public WeekDayTypeDto getWeekDay() {
-        return this.weekDay;
+    public ScheduleDto(final List<ScheduleEntryDto> scheduleList) {
+        this(scheduleList, null, null);
     }
 
-    public void setWeekDay(final WeekDayTypeDto value) {
-        this.weekDay = value;
+    public ScheduleDto(final List<ScheduleEntryDto> scheduleList, final Short astronomicalSunriseOffset,
+            final Short astronomicalSunsetOffset) {
+        this.scheduleList = scheduleList;
+        this.astronomicalSunriseOffset = astronomicalSunriseOffset;
+        this.astronomicalSunsetOffset = astronomicalSunsetOffset;
+        this.setAstroOffsets = astronomicalSunriseOffset != null || astronomicalSunsetOffset != null;
+        this.getConfigurationFirst = this.setAstroOffsets;
     }
 
-    public void setStartDay(final DateTime value) {
-        this.startDay = value;
+    public Short getAstronomicalSunriseOffset() {
+        return this.astronomicalSunriseOffset;
     }
 
-    public DateTime getStartDay() {
-        return this.startDay;
+    public Short getAstronomicalSunsetOffset() {
+        return this.astronomicalSunsetOffset;
     }
 
-    public void setEndDay(final DateTime value) {
-        this.endDay = value;
+    public List<ScheduleEntryDto> getScheduleList() {
+        return this.scheduleList;
     }
 
-    public DateTime getEndDay() {
-        return this.endDay;
+    public PageInfoDto getPageInfo() {
+        return this.pageInfo;
     }
 
-    public void setActionTime(final ActionTimeTypeDto value) {
-        this.actionTime = value;
+    public void setPageInfo(final PageInfoDto pageInfo) {
+        this.pageInfo = pageInfo;
     }
 
-    public ActionTimeTypeDto getActionTime() {
-        return this.actionTime;
+    // boolean indicating whether the astronomical offsets should be set first
+    public boolean isSetAstronomicalOffsets() {
+        return this.setAstroOffsets;
     }
 
-    public void setTime(final String value) {
-        this.time = value;
+    public void setSetAstronomicalOffsets(final boolean setAstroOffsets) {
+        this.setAstroOffsets = setAstroOffsets;
     }
 
-    public String getTime() {
-        return this.time;
+    public boolean isGetConfigurationFirst() {
+        return this.getConfigurationFirst;
     }
 
-    public void setTriggerWindow(final WindowTypeDto value) {
-        this.triggerWindow = value;
+    public void setGetConfigurationFirst(final boolean getConfigurationFirst) {
+        this.getConfigurationFirst = getConfigurationFirst;
     }
 
-    public WindowTypeDto getTriggerWindow() {
-        return this.triggerWindow;
+    public ConfigurationDto getConfiguration() {
+        return this.configuration;
     }
 
-    public void setLightValue(final List<LightValueDto> value) {
-        this.lightValue = value;
-    }
-
-    public List<LightValueDto> getLightValue() {
-        return this.lightValue;
-    }
-
-    public void setTriggerType(final TriggerTypeDto triggerType) {
-        this.triggerType = triggerType;
-    }
-
-    public TriggerTypeDto getTriggerType() {
-        return this.triggerType;
-    }
-
-    public Integer getIndex() {
-        return this.index;
-    }
-
-    public void setIndex(final Integer index) {
-        this.index = index;
-    }
-
-    public void setIsEnabled(final Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
-
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
-    }
-
-    public Integer getMinimumLightsOn() {
-        return this.minimumLightsOn;
-    }
-
-    public void setMinimumLightsOn(final Integer minimumLightsOn) {
-        this.minimumLightsOn = minimumLightsOn;
+    public void setConfiguration(final ConfigurationDto configuration) {
+        this.getConfigurationFirst = false;
+        this.configuration = configuration;
     }
 }
