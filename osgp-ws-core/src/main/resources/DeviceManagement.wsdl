@@ -273,6 +273,46 @@
     </wsdl:part>
   </wsdl:message>
 
+  <wsdl:message name="OsgpMessageHeader">
+    <wsdl:part element="common:OrganisationIdentification"
+      name="OrganisationIdentification" />
+    <wsdl:part element="common:UserName" name="UserName" />
+    <wsdl:part element="common:ApplicationName" name="ApplicationName" />
+  </wsdl:message>
+
+  <wsdl:message name="UpdateDeviceCdmaSettingsHeader">
+    <wsdl:part element="common:OrganisationIdentification"
+      name="OrganisationIdentification" />
+    <wsdl:part element="common:UserName" name="UserName" />
+    <wsdl:part element="common:ApplicationName" name="ApplicationName" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDeviceCdmaSettingsRequest">
+    <wsdl:part element="dman:UpdateDeviceCdmaSettingsRequest"
+      name="UpdateDeviceCdmaSettingsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateDeviceCdmaSettingsAsyncResponse">
+    <wsdl:part element="dman:UpdateDeviceCdmaSettingsAsyncResponse"
+      name="UpdateDeviceCdmaSettingsAsyncResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateDeviceCdmaSettingsAsyncHeader">
+    <wsdl:part element="common:OrganisationIdentification"
+      name="OrganisationIdentification" />
+    <wsdl:part element="common:UserName" name="UserName" />
+    <wsdl:part element="common:ApplicationName" name="ApplicationName" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDeviceCdmaSettingsAsyncRequest">
+    <wsdl:part element="dman:UpdateDeviceCdmaSettingsAsyncRequest"
+      name="UpdateDeviceCdmaSettingsAsyncRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateDeviceCdmaSettingsResponse">
+    <wsdl:part element="dman:UpdateDeviceCdmaSettingsResponse"
+      name="UpdateDeviceCdmaSettingsResponse">
+    </wsdl:part>
+  </wsdl:message>
+
   <wsdl:portType name="DeviceManagementPort">
     <wsdl:operation name="FindEvents">
       <wsdl:input message="tns:FindEventsRequest" name="FindEventsRequest">
@@ -406,6 +446,24 @@
         name="SetDeviceLifecycleStatusResponse">
       </wsdl:output>
     </wsdl:operation>
+
+    <wsdl:operation name="UpdateDeviceCdmaSettings">
+      <wsdl:input message="tns:UpdateDeviceCdmaSettingsRequest"
+        name="UpdateDeviceCdmaSettingsRequest">
+      </wsdl:input>
+      <wsdl:output message="tns:UpdateDeviceCdmaSettingsAsyncResponse"
+        name="UpdateDeviceCdmaSettingsAsyncResponse">
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateDeviceCdmaSettingsResponse">
+      <wsdl:input message="tns:UpdateDeviceCdmaSettingsAsyncRequest"
+        name="UpdateDeviceCdmaSettingsAsyncRequest">
+      </wsdl:input>
+      <wsdl:output message="tns:UpdateDeviceCdmaSettingsResponse"
+        name="UpdateDeviceCdmaSettingsResponse">
+      </wsdl:output>
+    </wsdl:operation>
+
   </wsdl:portType>
 
   <wsdl:binding name="DeviceManagementPortSoap11" type="tns:DeviceManagementPort">
@@ -662,6 +720,38 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    
+    <wsdl:operation name="UpdateDeviceCdmaSettings">
+      <soap:operation soapAction="" />
+      <wsdl:input name="UpdateDeviceCdmaSettingsRequest">
+        <soap:header message="tns:OsgpMessageHeader"
+          part="OrganisationIdentification" use="literal" />
+        <soap:header message="tns:OsgpMessageHeader"
+          part="UserName" use="literal" />
+        <soap:header message="tns:OsgpMessageHeader"
+          part="ApplicationName" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateDeviceCdmaSettingsAsyncResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceCdmaSettingsResponse">
+      <soap:operation soapAction="" />
+      <wsdl:input name="UpdateDeviceCdmaSettingsAsyncRequest">
+        <soap:header message="tns:OsgpMessageHeader"
+          part="OrganisationIdentification" use="literal" />
+        <soap:header message="tns:OsgpMessageHeader"
+          part="UserName" use="literal" />
+        <soap:header message="tns:OsgpMessageHeader"
+          part="ApplicationName" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateDeviceCdmaSettingsStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    
   </wsdl:binding>
 
   <wsdl:service name="DeviceManagementPortService">
